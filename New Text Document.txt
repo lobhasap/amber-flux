@@ -1,0 +1,18 @@
+Assignment:
+
+Create a FastAPI application that performs the following tasks:
+
+Video Processing:
+- Implement an endpoint that accepts a video file upload (e.g., MP4 format).
+- Extract frames from the uploaded video at a specified interval (e.g., every second).
+- Save the extracted frames as images in a specified output directory.
+
+Feature Vector Computation:
+- For each extracted frame, compute a simple feature vector (e.g., using color histograms or any other method of your choice).
+- Store the feature vectors in a vector database of your choice (Qdrant etc.).
+
+API for Retrieval:
+- Implement an endpoint that allows querying the vector database for similar frames based on a given feature vector.
+- The endpoint should return the relevant frame images and their corresponding feature vectors.
+
+Your submission should be a github link that we can review (code, output, documentation etc).
