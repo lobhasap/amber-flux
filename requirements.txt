@@ -4,3 +4,4 @@ opencv-python
 numpy
 qdrant-client
 python-multipart 
+python-dotenv

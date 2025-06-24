@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import JSONResponse
 from typing import List
@@ -15,7 +17,12 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Qdrant setup
 QDRANT_COLLECTION = 'frame_vectors'
-qdrant = QdrantClient(host='localhost', port=6333)
+qdrant = QdrantClient(
+    url=os.getenv("QDRANT_URL"),
+    api_key=os.getenv("QDRANT_API_KEY"),
+)
+
+print(qdrant.get_collections())
 
 # Create collection if not exists
 try:
@@ -92,3 +99,5 @@ def retrieve_similar_frames(query_vector: List[float]):
     return {"results": results}
 
 # TODO: Add logic for feature vector computation and Qdrant integration 
+
+print(frame_features[0]["vector"]) 
